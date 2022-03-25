@@ -1,0 +1,109 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div>
+    <img src="{{ asset ('template/img/logoEFacture.jpg') }}"></img>
+</div>
+<br>
+<div class="breadcrumb breadcrumb-1 pos-center">
+    <h1>L'inscription est totalement gratuite.</h1>
+</div>
+<div class="row">
+    <div class="col-sm-6 col-lg-6">
+        <h1 class="title"></h1>
+        <div class="intro">
+            <h3>service de facturation sans papier qui réduit les coûts administratifs et de gérer le flux de trésorerie.</h3>
+        </div>
+        <div class="body">
+            <p>&nbsp;</p>
+            {# <p><iframe allowfullscreen="" src="//player.vimeo.com/video/63674326"></iframe></p>#}
+
+        </div>
+    </div>
+    <div class="col-sm-6 col-lg-6 block">
+        <div class="margint60">
+            <form action="{{path('fos_user_registration_register')}}" method="post" class='fos_user_registration_register'>
+
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label class="control-label">Nom</label>
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_widget(form.name, { 'attr': {'class':'form-control'} } ) }}
+                    </div>
+                    <div class='clearfix'></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label class="control-label">Prenom</label>
+                    </div>
+                    <div class="col-sm-7">
+                       {{ form_widget(form.surname, { 'attr': {'class':'form-control'} } ) }}
+                    </div>
+                    <div class='clearfix'></div>
+                </div>
+
+                <div class="form-group {% if form.username.vars.errors|length > 0  %} has-error {%endif%}">
+                    <div class="col-sm-5">
+                        <label class="control-label">Nom d'utilisateur *</label>
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_widget(form.username, { 'attr': {'class':'form-control'} } )}}
+                        {{form_errors(form.username)}}
+                    </div>
+                    <div class='clearfix'></div>
+                </div>
+
+                <div class="form-group {% if form.plainPassword.first.vars.errors|length > 0  %} has-error {%endif%}">
+                    <div class="col-sm-5">
+                        <label class="control-label">Mot de passe *</label>
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_widget(form.plainPassword.first, { 'attr': {'placeholder':'********','class':'form-control'} }) }}
+                        {{form_errors(form.plainPassword.first)}}
+                    </div>
+                    <div class='clearfix'></div>
+                </div>
+
+                <div class="form-group {% if form.plainPassword.second.vars.errors|length > 0  %} has-error {%endif%}">
+                    <div class="col-sm-5">
+                        <label class="control-label">Confirme mot de firste *</label>
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_widget(form.plainPassword.second, { 'attr': {'placeholder':'********','class':'form-control'} }) }}
+                        {{form_errors(form.plainPassword.second)}}
+                    </div>
+                    <div class='clearfix'></div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-5">
+                        <label class="control-label">Adresse e-mail *</label>
+                    </div>
+                    <div class="col-sm-7">
+                        {{ form_widget(form.email, { 'attr': {'class':'form-control' }}) }}
+                    </div>
+                    <div class='clearfix'></div>
+                </div>
+
+                {{ form_widget(form._token) }}
+
+                <div class="col-sm-12">
+                    <div class="checkbox pull-left">
+                        Envoyer moi une news-lettre
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="CREER UN COMPTE">
+                </div>
+            </form>
+
+            <div class="legal col-sm-12">
+                <p>En vous inscrivant sur E-Facture, vous secondez que vous acceptez les
+                    <a href="#" target="_blank">conditions générales d'utilisation</a>
+                    de notre plateforme.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
